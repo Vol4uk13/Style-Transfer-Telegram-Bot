@@ -1,0 +1,12 @@
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+__pycache__/
+.vscode/
+something_else/
+pygame_async_demo/
+test/
+temp/
+my_test.py
+.DS_Store
