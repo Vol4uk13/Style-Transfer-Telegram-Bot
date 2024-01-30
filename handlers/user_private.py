@@ -10,7 +10,7 @@ from model import *  # Импортируем архитектуру MSGNET
 from functions import *  # Импортируем функции
 
 user_private_router = Router()
-
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # Инициализация флага для содержимого и стиля изображений.
 flag = True
 # Инициализация флагов для проверки изображений.
@@ -23,7 +23,7 @@ size_img = False
 status = {0: 'Добавь первое фото из двух', 1: 'Добавь второе фото', 2: 'Добавлено фото со стилем', 3: 'Выбери качество. Ожидай результат.'}
 
 # Инициализируем модели и загрузим веса.
-style_model = MsgNet(ngf=128)
+style_model = MsgNet(ngf=128).to(device)
 style_model.load_state_dict(torch.load('style.model'), False)
 
 
