@@ -33,7 +33,7 @@ dp.include_router(user_private_router)
 # которая будет выполняться на старте бота,
 nest_asyncio.apply()
 async def main():
-    await dp.start_polling(bot)
+    await dp.start_polling(bot, skip_updates=True)
 
 
 if __name__ == '__main__':

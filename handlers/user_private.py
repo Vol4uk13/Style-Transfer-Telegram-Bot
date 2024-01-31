@@ -104,7 +104,7 @@ async def photo_processing(message):
     # Бот ожидает фото со стилем.
     else:
         await message.bot.download(file=message.photo[-1].file_id, destination='style.jpg')
-        await message.answer(text='Получена вторая фотограффия. Теперь нажми команду /continue'
+        await message.answer(text='Получена вторая фотограффия. Теперь нажми команду /continue '
                                   ' или /cancel для отмены и выбора '
                                   ' фото с другим стилем. ')
         flag = True
@@ -128,7 +128,9 @@ async def cancel_process(message: Message):
         flag = False
         content_flag = True
         style_flag = False
-        await message.answer(text="Отправь боту второе фото со стилем для переноса на первое фото.")
+        await message.answer(text="Отправь боту "
+                             " второе фото со стилем "
+                             " для переноса на первое фото. ")
 
 
 
@@ -156,7 +158,7 @@ async def get_status(message: Message):
 @user_private_router.message(F.text, Command("author"))
 async def creator(message: Message):
     """Хэндлер для команды /author"""
-    link = 'https://github.com/Vol4uk13'
+    link = 'https://github.com/Vol4uk13/Style-Transfer-Telegram-Bot'
     await message.answer(text="Бот сделан Vol4uk13."
                               "\nСсылка на код бота " + link)
 
