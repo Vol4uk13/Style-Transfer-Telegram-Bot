@@ -27,8 +27,19 @@
 
 Для развертывания бота использована облачная инфраструктура сервиса Selectel с конфигурацией сервера: Ubuntu 22.04 LTS 64-bit, vCPU - 1 ядро, память - 2 ГБ. Сетевой диск: HDD Базовый на 10 гб.
 
+![https://i.paste.pics/9FNQ5.png](https://github.com/Vol4uk13/Style-Transfer-Telegram-Bot/blob/main/images/%D0%BC%D0%B5%D0%BD%D1%8E.PNG)
+
 **Результат**
 
+Фото для переноса
 
+![https://i.paste.pics/9FNQ5.png](https://github.com/Vol4uk13/Style-Transfer-Telegram-Bot/blob/main/images/photo_content.jpg)
 
+Фото стиля.
+
+![https://i.paste.pics/9FNQ5.png](https://github.com/Vol4uk13/Style-Transfer-Telegram-Bot/blob/main/images/photo_style.jpg)
+
+Результат
+
+![https://i.paste.pics/9FNQ5.png](https://github.com/Vol4uk13/Style-Transfer-Telegram-Bot/blob/main/images/photo_out.jpg)
 
