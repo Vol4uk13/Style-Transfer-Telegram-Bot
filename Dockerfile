@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 
 FROM python:3.12
-MAINTAINER Maria Ryzhakova 'finge@yandex.ru'
 COPY . /app
 WORKDIR /app
 # Upgrade pip
