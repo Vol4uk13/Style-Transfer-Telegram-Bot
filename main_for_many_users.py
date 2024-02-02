@@ -13,7 +13,7 @@ import asyncio
 from dotenv import find_dotenv, load_dotenv
 load_dotenv(find_dotenv())
 
-from handlers.user_private import user_private_router
+from handlers.user_private_for_many_users import user_private_router
 
 
 

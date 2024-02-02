@@ -17,7 +17,6 @@ flag = True
 content_flag = False
 style_flag = False
 final_flag = False
-# name_photo_1 = False
 continue_waiting = False
 size_img = False
 status = {0: 'Добавь первое фото из двух', 1: 'Добавь второе фото', 2: 'Добавлено фото со стилем', 3: 'Выбери качество. Ожидай результат.'}
@@ -92,10 +91,10 @@ async def photo_processing(message):
     # Бот ждет первое фото.
     if flag:
         await message.bot.download(file=message.photo[-1].file_id, destination='content.jpg')
-        await message.answer(text='Получена первая фотограффия.'
+        await message.answer(text='Получена первое фото.'
                                   ' Теперь отправь фото со стилем или нажми '
                                   'команду /cancel для выбора '
-                                  'другого фото для.')
+                                  'другого фото.')
 
         flag = False
         content_flag = True
@@ -104,7 +103,7 @@ async def photo_processing(message):
     # Бот ожидает фото со стилем.
     else:
         await message.bot.download(file=message.photo[-1].file_id, destination='style.jpg')
-        await message.answer(text='Получена вторая фотограффия. Теперь нажми команду /continue '
+        await message.answer(text='Получена второе фото. Теперь нажми команду /continue '
                                   ' или /cancel для отмены и выбора '
                                   ' фото с другим стилем. ')
         flag = True
@@ -190,7 +189,7 @@ async def contin(message: types.Message):
         await message.answer(text="Супер, теперь нужно выбрать качество"
                         " для будущей картинки. Чем выше "
                         "качество, тем медленней процесс обработки."
-                        " Если хочешь повторить пришли мне снова две фотографии,"
+                        " Если хочешь повторить пришли мне снова две фото,"
                         " где последняя фото со стилем.", reply_markup=res)
 
         continue_waiting = True
@@ -264,3 +263,14 @@ async def low_func(message: Message):
     flag = True
     content_flag = False
     style_flag = False
+
+# Этот хэндлер будет срабатывать на любые текстовые сообщения,
+# кроме команд "/start" и "/help"
+@user_private_router.message()
+async def send_echo(message: Message):
+    await message.answer(
+        text='Я даже представить себе не могу, '
+             'что ты имеешь в виду\n\n'
+             'Чтобы посмотреть список доступных команд - '
+             'отправь команду /help'
+    )
