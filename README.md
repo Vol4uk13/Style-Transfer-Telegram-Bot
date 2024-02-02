@@ -23,13 +23,27 @@
 
 Бот создан при помощи `@BotFather`, так же в нём было настроено меню моего бота. Для запуска бота нужно использовать свой собственный токен, который выдаёт `@BotFather`.
 
+В ходе активного тестирования,было принято решение сделать многопользовательский вариант бота, чтобы не происходило перехватывание сообщений от ботов другими пользователями. В данном случае это реализовано с помощью словаря с id пользователя и его регистрацией его действий. Для запуска такого бота нужно запустить [main_for_many_users.py]([https://github.com/t0efL/Style-Transfer-Telegram-Bot/blob/master/](https://github.com/Vol4uk13/Style-Transfer-Telegram-Bot/main_for_many_users.py). Так же для бота создан свой файл с хэндлерами: [user_private_for_many_users.py](https://github.com/Vol4uk13/Style-Transfer-Telegram-Bot/blob/main/handlers/user_private_for_many_users.py)
+
 **Deploy**
 
-Для развертывания бота использована облачная инфраструктура сервиса Selectel с конфигурацией сервера: Ubuntu 22.04 LTS 64-bit, vCPU - 1 ядро, память - 2 ГБ. Сетевой диск: HDD Базовый на 10 гб.
+Для развертывания бота использована облачная инфраструктура сервиса Selectel с конфигурацией сервера: Ubuntu 22.04 LTS 64-bit, vCPU - 2 ядро, память - 4 ГБ. Сетевой диск: HDD Базовый на 10 гб. Подбор конфигурации сделан путём проб и ошибок,а так же с учётом многопользовательского использования.
+
+Для установки Pytorch для CPU на сервер я использовала команду:
+
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+Если RAM имеет более скромные размеры, то можно использовать:
+
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu --no-cache-di
+
+
+**Как выглядит меню бота**
 
 ![https://i.paste.pics/9FNQ5.png](https://github.com/Vol4uk13/Style-Transfer-Telegram-Bot/blob/main/images/%D0%BC%D0%B5%D0%BD%D1%8E.PNG)
 
-**Результат**
+
+**Результат работы бота**
 
 Фото для переноса
 
@@ -43,3 +57,4 @@
 
 ![https://i.paste.pics/9FNQ5.png](https://github.com/Vol4uk13/Style-Transfer-Telegram-Bot/blob/main/images/photo_out.jpg)
 
+P.S. для тестирования бота в коде прописана комада "clear" без префикса - возвращет словарь к дефолтному виду.
