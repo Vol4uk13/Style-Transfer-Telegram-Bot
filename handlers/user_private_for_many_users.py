@@ -96,7 +96,7 @@ async def photo_processing(message):
     try:
         if users[message.from_user.id]['flag']:
             await message.bot.download(file=message.photo[-1].file_id, destination='content.jpg')
-            await message.answer(text='Получена первое фото.'
+            await message.answer(text='Получено первое фото.'
                                  ' Теперь отправь фото со стилем или нажми '
                                  'команду /cancel для выбора '
                                  'другого фото.')
@@ -111,7 +111,7 @@ async def photo_processing(message):
         # Бот ожидает фото со стилем.
         else:
             await message.bot.download(file=message.photo[-1].file_id, destination='style.jpg')
-            await message.answer(text='Получена второе фото. Теперь нажми команду /continue '
+            await message.answer(text='Получено второе фото. Теперь нажми команду /continue '
                                   ' или /cancel для отмены и выбора '
                                   ' фото с другим стилем 🤠. ')
             users[message.from_user.id] = {
@@ -134,7 +134,7 @@ async def photo_processing(message):
 async def cancel_process(message: Message):
     """Хэндлер для команды /cancel"""
     try:
-        if users[message.from_user.id]['content_flag'] == False and users[message.from_user.id]['style_flag'] == False:
+        if users[message.from_user.id]['content_flag'] == True and users[message.from_user.id]['style_flag'] == False:
             users[message.from_user.id] = {
                 'flag': True,
                 'content_flag': False,
@@ -208,7 +208,7 @@ async def contin(message: types.Message):
                                  " для будущей картинки. Чем выше "
                                  "качество, тем медленней процесс обработки."
                                  " Если хочешь повторить пришли мне снова две фото,"
-                                 " где последняя фото со стилем.", reply_markup=res)
+                                 " где последние фото - со стилем.", reply_markup=res)
 
             users[message.from_user.id] = {
                 'flag': False,
